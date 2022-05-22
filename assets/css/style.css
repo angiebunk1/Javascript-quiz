@@ -37,7 +37,33 @@ header a:hover {
     color: var(--background-color);
 }
 
+section {
+    padding: 20px 200px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
 
+section h2 {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+section button {
+    padding: 20px 20px;
+    background-color: var(--button-color);
+    color: var(--button-text);
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 820px) {
+    section {
+        padding: 20px 20px;
+    }
+}
 
 
 
