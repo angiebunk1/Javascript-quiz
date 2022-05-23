@@ -28,6 +28,12 @@ header h1 {
     font-weight: bold;
 }
 
+header p {
+    color: var(--button-text);
+    font-size: 22px;
+    padding: 10px;
+}
+
 header a {
     color: var(--button-text);
     padding: 10px 20px;

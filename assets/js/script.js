@@ -4,8 +4,12 @@ var initials = "";
 
 
 var beginQuiz = function () {
+    timer();
+
     document.getElementById("h2").innerHTML = "Question 1";
     document.getElementById("btn1").innerHTML = "Answer 1";
+
+    btn1.removeEventListener("click", beginQuiz);
 
 
     var btn2 = document.createElement("button");
@@ -31,6 +35,15 @@ var beginQuiz = function () {
         question2();
     });
     
+};
+
+var timer = function() {
+    setInterval(function(){
+        document.getElementById("timer").innerHTML="Seconds remaining: " + time; time--;
+        if (time <= 0) {
+            endQuiz();
+        }
+    }, 1000);
 };
 
 
