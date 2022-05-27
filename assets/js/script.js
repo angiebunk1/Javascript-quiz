@@ -1,6 +1,5 @@
 var score = 0;
 var time = 120;
-var initials = "";
 var btn1 = "";
 var btn2 = "";
 var btn3 = "";
@@ -9,6 +8,8 @@ var enterText = "";
 var index = 0;
 var startBtn = document.querySelector("#startBtn");
 var submitBtn = "";
+
+var winners = [];
 
 var questions = [
     {
@@ -130,15 +131,16 @@ var endQuiz = function() {
 
     submitBtn = document.createElement("button");
     submitBtn.innerHTML = "SUBMIT";
-    document.getElementById("add-content").appendChild(submitBtn);
+    document.getElementById("newForm").appendChild(submitBtn);
 
-    submitBtn.addEventListener("click", )
-
-
-
-
+    
+    
+    
+    submitBtn.addEventListener("click", );
 
 };
+
+
 
 
 startBtn.addEventListener("click", beginQuiz);
