@@ -4,9 +4,11 @@ var initials = "";
 var btn1 = "";
 var btn2 = "";
 var btn3 = "";
-var intialsForm = "";
+var initialsForm = "";
+var enterText = "";
 var index = 0;
 var startBtn = document.querySelector("#startBtn");
+var submitBtn = "";
 
 var questions = [
     {
@@ -117,8 +119,24 @@ var endQuiz = function() {
     btn2.style.display = "none";
     btn3.style.display = "none";
 
-    intialsForm = document.createElement("");
-    document.getElementById("section").appendChild(initialsForm);
+    initialsForm = document.createElement("form");
+    initialsForm.setAttribute("id", "newForm")
+    document.getElementById("add-content").appendChild(initialsForm);
+
+    enterText = document.createElement("input");
+    enterText.setAttribute("type", "text");
+    enterText.setAttribute("value", "");
+    document.getElementById("newForm").appendChild(enterText);
+
+    submitBtn = document.createElement("button");
+    submitBtn.innerHTML = "SUBMIT";
+    document.getElementById("add-content").appendChild(submitBtn);
+
+    submitBtn.addEventListener("click", )
+
+
+
+
 
 };
 
