@@ -45,7 +45,8 @@ var questions = [
 
 
 var beginQuiz = function() {
-    timer();
+    time = 30;
+    countdown();
 
     startBtn.style.display = "none";
 
@@ -67,21 +68,30 @@ var beginQuiz = function() {
 
 var time = "";
 
+var timer= "";
 
 
-var timer = function() {
+var countdown = function(){
+timer = setInterval(function(){
+    document.getElementById("seconds").innerHTML = time; 
+    time--;
+    if (time == -1) {
+        clearInterval(timer);
+    }
+}, 1000);
+};
 
-setInterval(function() { 
-    if(time <= 0) {
-        endQuiz();
-    } ; 
-       
-    document.getElementById("seconds").innerHTML = time; time--;        
-    }, 1000);
-    
- };
+
+
+
+
+
+
+
+ 
 
 var changeQuestion = function() {
+
     
     document.getElementById("h2").innerHTML = questions[index].text;
 
@@ -113,6 +123,7 @@ var checkAnswer = function(event) {
         };
         index = index + 1;
         if (index > questions.length - 1) {
+        
             endQuiz();
         
         }
@@ -128,9 +139,8 @@ var checkAnswer = function(event) {
 
 
 var endQuiz = function() {
-
-    clearInterval(timer);
     
+    clearInterval(timer);
 
     document.getElementById("h2").innerHTML = "Quiz is finished. Enter your initials to log your score.";
 
