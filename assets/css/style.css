@@ -28,7 +28,12 @@ header h1 {
     font-weight: bold;
 }
 
-header p {
+header div {
+    display: flex;
+    text-align: row;
+}
+
+header div p {
     color: var(--button-text);
     font-size: 22px;
     padding: 10px;

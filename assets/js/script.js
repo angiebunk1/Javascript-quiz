@@ -1,5 +1,5 @@
 var score = 0;
-var time = 120;
+
 var btn1 = "";
 var btn2 = "";
 var btn3 = "";
@@ -8,6 +8,8 @@ var enterText = "";
 var index = 0;
 var startBtn = document.querySelector("#startBtn");
 var submitBtn = "";
+
+
 
 var winners = [];
 
@@ -61,14 +63,23 @@ var beginQuiz = function() {
     
 };
 
+
+
+var time = "";
+
+
+
 var timer = function() {
-    setInterval(function(){
-        document.getElementById("timer").innerHTML="Seconds remaining: " + time; time--;
-        if (time <= 0) {
-            endQuiz();
-        }
+
+setInterval(function() { 
+    if(time <= 0) {
+        endQuiz();
+    } ; 
+       
+    document.getElementById("seconds").innerHTML = time; time--;        
     }, 1000);
-};
+    
+ };
 
 var changeQuestion = function() {
     
@@ -84,6 +95,8 @@ var changeQuestion = function() {
     btn2.addEventListener("click", checkAnswer);
     
     btn3.addEventListener("click", checkAnswer);
+
+    
 
     
 };
@@ -107,13 +120,18 @@ var checkAnswer = function(event) {
             
             changeQuestion();
         };
+        
        
-}
+};
+
 
 
 
 var endQuiz = function() {
+
+    clearInterval(timer);
     
+
     document.getElementById("h2").innerHTML = "Quiz is finished. Enter your initials to log your score.";
 
     btn1.style.display = "none";
@@ -133,6 +151,7 @@ var endQuiz = function() {
     submitBtn.innerHTML = "SUBMIT";
     document.getElementById("newForm").appendChild(submitBtn);
 
+    
     
     
     
