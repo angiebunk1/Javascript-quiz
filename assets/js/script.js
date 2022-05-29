@@ -1,4 +1,4 @@
-var score = 0;
+
 
 var btn1 = "";
 var btn2 = "";
@@ -9,9 +9,14 @@ var index = 0;
 var startBtn = document.querySelector("#startBtn");
 var submitBtn = "";
 
-
-
 var winners = [];
+
+var quizTaker = {
+    initials: initialsFormInput,
+    score: endTime
+};
+
+
 
 var questions = [
     {
@@ -76,7 +81,7 @@ timer = setInterval(function(){
     document.getElementById("seconds").innerHTML = time; 
     time--;
     if (time == -1) {
-        clearInterval(timer);
+        endQuiz();
     }
 }, 1000);
 };
@@ -92,6 +97,7 @@ timer = setInterval(function(){
 
 var changeQuestion = function() {
 
+
     
     document.getElementById("h2").innerHTML = questions[index].text;
 
@@ -99,7 +105,7 @@ var changeQuestion = function() {
     btn2.innerHTML = questions[index].options[1];
     btn3.innerHTML = questions[index].options[2];
 
-    
+        
     btn1.addEventListener("click", checkAnswer);
 
     btn2.addEventListener("click", checkAnswer);
@@ -115,23 +121,27 @@ var changeQuestion = function() {
 
 var checkAnswer = function(event) {
         if (event.target.textContent == questions[index].correct) {
-            time = time + 20
-    
+            time = time + 20;
+            
         }
         else {
-            time = time - 10
+            time = time - 10;
+            
         };
         index = index + 1;
-        if (index > questions.length - 1) {
         
-            endQuiz();
+        if (index < questions.length) {
+            
+            changeQuestion();
+            
         
         }
         else {
+           
+            endQuiz();
             
-            changeQuestion();
-        };
-        
+        };  
+
        
 };
 
@@ -165,9 +175,13 @@ var endQuiz = function() {
     
     
     
-    submitBtn.addEventListener("click", );
+    submitBtn.addEventListener("click", addInfo );
 
 };
+
+var addInfo = function() {
+    
+}
 
 
 
