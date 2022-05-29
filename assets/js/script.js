@@ -7,14 +7,7 @@ var initialsForm = "";
 var enterText = "";
 var index = 0;
 var startBtn = document.querySelector("#startBtn");
-var submitBtn = "";
 
-var winners = [];
-
-var quizTaker = {
-    initials: initialsFormInput,
-    score: endTime
-};
 
 
 
@@ -169,19 +162,42 @@ var endQuiz = function() {
 
     submitBtn = document.createElement("button");
     submitBtn.innerHTML = "SUBMIT";
+    submitBtn.className = "submitBtn";
     document.getElementById("newForm").appendChild(submitBtn);
 
     
-    
-    
-    
-    submitBtn.addEventListener("click", addInfo );
+    submitBtn.addEventListener("click", addInfo);
 
 };
 
-var addInfo = function() {
-    
+// var submitBtn = document.querySelector("submitBtn");
+var submitBtn = "";
+
+
+var winners = [];
+
+var quizTaker = {
+    initials: enterText.value,
+    score: endTime
+};
+
+addInfo(quizTaker);
+
+
+
+var endTime = localStorage.getItem("seconds");
+
+
+
+var addInfo = function(quizTaker) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = quizTaker.initials + quizTaker.score;
+    document.getElementById("score-list"). appendChild(listItem);
+
+
 }
+
+
 
 
 
