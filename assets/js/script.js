@@ -1,5 +1,5 @@
 
-
+var listItem = "";
 var btn1 = "";
 var btn2 = "";
 var btn3 = "";
@@ -7,8 +7,9 @@ var initialsForm = "";
 var enterText = "";
 var index = 0;
 var startBtn = document.querySelector("#startBtn");
-
-
+var submitBtn = "";
+var time = "";
+var timer= "";
 
 
 var questions = [
@@ -63,12 +64,6 @@ var beginQuiz = function() {
 };
 
 
-
-var time = "";
-
-var timer= "";
-
-
 var countdown = function(){
 timer = setInterval(function(){
     document.getElementById("seconds").innerHTML = time; 
@@ -78,20 +73,10 @@ timer = setInterval(function(){
     }
 }, 1000);
 };
-
-
-
-
-
-
-
-
  
 
 var changeQuestion = function() {
-
-
-    
+ 
     document.getElementById("h2").innerHTML = questions[index].text;
 
     btn1.innerHTML = questions[index].options[0];
@@ -104,46 +89,34 @@ var changeQuestion = function() {
     btn2.addEventListener("click", checkAnswer);
     
     btn3.addEventListener("click", checkAnswer);
-
-    
-
-    
+   
 };
 
 
 
 var checkAnswer = function(event) {
         if (event.target.textContent == questions[index].correct) {
-            time = time + 20;
-            
+            time = time + 20;            
         }
         else {
-            time = time - 10;
-            
+            time = time - 10;            
         };
         index = index + 1;
         
         if (index < questions.length) {
-            
-            changeQuestion();
-            
+            changeQuestion();            
         
         }
         else {
-           
-            endQuiz();
-            
+           endQuiz();
         };  
-
-       
 };
-
-
-
 
 var endQuiz = function() {
     
     clearInterval(timer);
+
+    endTime = localStorage.getItem("seconds");
 
     document.getElementById("h2").innerHTML = "Quiz is finished. Enter your initials to log your score.";
 
@@ -170,36 +143,37 @@ var endQuiz = function() {
 
 };
 
-// var submitBtn = document.querySelector("submitBtn");
-var submitBtn = "";
-
-
-var winners = [];
-
-var quizTaker = {
-    initials: enterText.value,
-    score: endTime
-};
-
-addInfo(quizTaker);
-
-
-
-var endTime = localStorage.getItem("seconds");
-
-
-
-var addInfo = function(quizTaker) {
-    var listItem = document.createElement("li");
-    listItem.innerHTML = quizTaker.initials + quizTaker.score;
-    document.getElementById("score-list"). appendChild(listItem);
-
-
-}
-
-
-
-
-
-
 startBtn.addEventListener("click", beginQuiz);
+
+// Everything commented out shows how far I got in trying to save scores. 
+
+
+// var highScores = document.querySelector("scores-link");
+
+// var endTime = "";
+
+// var winners = [];
+
+// var quizTaker = {
+//     initials: enterText.value,
+//     score: endTime
+// };
+
+
+// var addInfo = function(quizTaker) {
+//     listItem = document.createElement("li");
+//     listItem.className = "list-item";
+//     listItem.innerHTML = quizTaker.initials + quizTaker.score;
+//     document.getElementById("score-list"). appendChild(listItem);
+
+//     localStorage.setItem("list-item", JSON.stringify(winners));
+
+// };
+
+// var seeScores = function() {
+//     JSON.parse(winners);
+// };
+
+
+// highScores.addEventListener("click", seeScores);
+
